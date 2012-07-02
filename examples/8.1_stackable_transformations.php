@@ -1,0 +1,49 @@
+<?php
+
+	require_once('image_lib/image_lib_class.php');
+
+	/*	Purpose: Open image
+     *	Usage:	 resize('filename.type')
+     * 	Params:	 filename.type - the filename to open
+     */
+	$imageLibObj = new imageLib('sample_images/racecar.jpg');
+
+
+	/*
+		It's also possible to "stack" transformations. The following is one
+		example of many possibilities	
+	 */
+
+
+	// *** Resize image
+	$imageLibObj -> resizeImage(200, 200, 'crop');
+
+	// *** Add greyscale
+	$imageLibObj -> greyScaleDramatic();
+
+	// *** Add white border
+	$imageLibObj -> addBorder(25, '#fff');
+
+	// *** Add black border
+	$imageLibObj -> addBorder(5, '#000');
+
+	// *** Add white border
+	$imageLibObj -> addBorder(1, '#fff');
+
+	// *** Add watermark (bottom, 40px from boarder, 50% opacity)
+	$imageLibObj -> addWatermark('sample_images/bear.png', 'tr', 30, 20);
+
+	// *** Add text
+	$imageLibObj -> addText('Racer', 'b', 10, '#000', 10);
+
+
+
+	/*	Purpose: Save image
+     *	Usage:	 saveImage('[filename.type]', [quality])
+     * 	Params:	 filename.type - the filename and file type to save as
+ 	 * 			 quality - (optional) 0-100 (100 being the highest (default))
+     *				Only applies to jpg & png only
+     */
+	$imageLibObj -> saveImage('output_8.1.bmp', 100);
+
+?>
