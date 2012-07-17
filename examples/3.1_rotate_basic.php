@@ -1,12 +1,12 @@
 <?php
 
-	require_once('image_lib/image_lib_class.php');
+	require_once('../php_image_magician.php');
 
 	/*	Purpose: Open image
      *	Usage:	 resize('filename.type')
      * 	Params:	 filename.type - the filename to open
      */
-	$imageLibObj = new imageLib('sample_images/racecar.jpg');
+	$magicianObj = new imageLib('sample_images/racecar.jpg');
 
 
 	/*	Purpose: Rotate image
@@ -17,7 +17,7 @@
 	 *				right - rotate the image right (270 degrees)
 	 *				upside - rotate the image upside down (180 degress)
      */
-	$imageLibObj -> rotate('left');
+	$magicianObj -> rotate('left');
 
 
 	/*	Purpose: Save image
@@ -26,6 +26,6 @@
  	 * 			 quality - (optional) 0-100 (100 being the highest (default))
      *				Only applies to jpg & png only
      */
-	$imageLibObj -> saveImage('output_3.1.png', 100);
+	$magicianObj -> saveImage('output_3.1.png', 100);
 
 ?>

@@ -1,12 +1,12 @@
 <?php
 
-	require_once('image_lib/image_lib_class.php');
+	require_once('../php_image_magician.php');
 
 	/*	Purpose: Open image
      *	Usage:	 resize('filename.type')
      * 	Params:	 filename.type - the filename to open
      */
-	$imageLibObj = new imageLib('sample_images/racecar.jpg');
+	$magicianObj = new imageLib('sample_images/racecar.jpg');
 
 
 	/*	Purpose: Resize image
@@ -29,7 +29,7 @@
  	 *			 sharpen - set as true if you would like shapening applied to 
  	 *				to your resized image    
      */	
-	$imageLibObj -> resizeImage(200, 200, 'crop', true);
+	$magicianObj -> resizeImage(200, 200, 'crop', true);
 
 
 	/*	Purpose: Save image
@@ -38,6 +38,6 @@
  	 * 			 quality - (optional) 0-100 (100 being the highest (default))
      *				Only applies to jpg & png only
      */
-	$imageLibObj -> saveImage('output_1.2.bmp', 100);
+	$magicianObj -> saveImage('output_1.2.bmp', 100);
 
 ?>

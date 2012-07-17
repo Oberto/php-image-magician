@@ -1,12 +1,12 @@
 <?php
 
-	require_once('image_lib/image_lib_class.php');
+	require_once('../php_image_magician.php');
 
 	/*	Purpose: Open image
      *	Usage:	 resize('filename.type')
      * 	Params:	 filename.type - the filename to open
      */
-	$imageLibObj = new imageLib('sample_images/racecar.jpg');
+	$magicianObj = new imageLib('sample_images/racecar.jpg');
 
 
 	/*	Purpose: Resize image
@@ -32,13 +32,13 @@
  	 *				to your resized image    
      */	
 	
-	$imageLibObj -> resizeImage(200, 200, array('crop', 'tr'), true);
-	$imageLibObj -> saveImage('output_1.5_a.jpg', 100);
+	$magicianObj -> resizeImage(200, 200, array('crop', 'tr'), true);
+	$magicianObj -> saveImage('output_1.5_a.jpg', 100);
 	
 	// *** Or 
-	$imageLibObj -> reset();
+	$magicianObj -> reset();
 
-	$imageLibObj -> resizeImage(200, 200, 'crop-tr', true);
-	$imageLibObj -> saveImage('output_1.5_b.jpg', 100);
+	$magicianObj -> resizeImage(200, 200, 'crop-tr', true);
+	$magicianObj -> saveImage('output_1.5_b.jpg', 100);
 
 ?>

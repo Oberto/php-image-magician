@@ -1,12 +1,12 @@
 <?php
 
-	require_once('image_lib/image_lib_class.php');
+	require_once('../php_image_magician.php');
 
 	/*	Purpose: Open image
      *	Usage:	 resize('filename.type')
      * 	Params:	 filename.type - the filename to open
      */
-	$imageLibObj = new imageLib('sample_images/racecar.jpg');
+	$magicianObj = new imageLib('sample_images/racecar.jpg');
 
 
 	/*	Purpose: Resize image
@@ -27,7 +27,7 @@
      *      crop = Will resize and then crop the image for best fit
  	 *	 
      */	
-	$imageLibObj -> resizeImage(200, 200, 'crop');
+	$magicianObj -> resizeImage(200, 200, 'crop');
 
 
 	/*	Purpose: Save image
@@ -36,6 +36,6 @@
  	 * 			 quality - (optional) 0-100 (100 being the highest (default))
      *				Only applies to jpg & png only
      */
-	$imageLibObj -> saveImage('output_1.4.jpg', 100);
+	$magicianObj -> saveImage('output_1.4.jpg', 100);
 
 ?>

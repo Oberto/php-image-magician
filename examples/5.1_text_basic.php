@@ -1,12 +1,12 @@
 <?php
 
-	require_once('image_lib/image_lib_class.php');
+	require_once('../php_image_magician.php');
 
 	/*	Purpose: Open image
      *	Usage:	 resize('filename.type')
      * 	Params:	 filename.type - the filename to open
      */
-	$imageLibObj = new imageLib('sample_images/racecar.jpg');
+	$magicianObj = new imageLib('sample_images/racecar.jpg');
 
 
 	/*	Purpose: Add text to your image
@@ -28,7 +28,7 @@
      *	Output:	 This will add the word "test" to the middle of your image in
      *			 default color, white.
      */
-	$imageLibObj -> addText('test', 'm');
+	$magicianObj -> addText('test', 'm');
 
 
 	/*	Purpose: Save image
@@ -37,6 +37,6 @@
  	 * 			 quality - (optional) 0-100 (100 being the highest (default))
      *				Only applies to jpg & png only
      */
-	$imageLibObj -> saveImage('output_5.1.png', 100);
+	$magicianObj -> saveImage('output_5.1.png', 100);
 
 ?>

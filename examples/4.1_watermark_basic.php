@@ -1,12 +1,12 @@
 <?php
 
-	require_once('image_lib/image_lib_class.php');
+	require_once('../php_image_magician.php');
 
 	/*	Purpose: Open image
      *	Usage:	 resize('filename.type')
      * 	Params:	 filename.type - the filename to open
      */
-	$imageLibObj = new imageLib('sample_images/racecar.jpg');
+	$magicianObj = new imageLib('sample_images/racecar.jpg');
 
 
 	/*	Purpose: Add a watermark to your image
@@ -26,7 +26,7 @@
      * 	
      *	Output:	 Adds a watermark image to the bottom-right corner of your image
      */
-	$imageLibObj -> addWatermark('sample_images/monkey.png', 'br');
+	$magicianObj -> addWatermark('sample_images/monkey.png', 'br');
 
 
 	/*	Purpose: Save image
@@ -35,6 +35,6 @@
  	 * 			 quality - (optional) 0-100 (100 being the highest (default))
      *				Only applies to jpg & png only
      */
-	$imageLibObj -> saveImage('output_4.1.png', 100);
+	$magicianObj -> saveImage('output_4.1.png', 100);
 
 ?>

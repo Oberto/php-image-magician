@@ -1,12 +1,12 @@
 <?php
 
-	require_once('image_lib/image_lib_class.php');
+	require_once('../php_image_magician.php');
 
 	/*	Purpose: Open image
      *	Usage:	 resize('filename.type')
      * 	Params:	 filename.type - the filename to open
      */
-	$imageLibObj = new imageLib('sample_images/racecar.jpg');
+	$magicianObj = new imageLib('sample_images/racecar.jpg');
 
 
 	/*	Purpose: Rotate image
@@ -15,7 +15,7 @@
 	 *     		 bgolor	- the color of the background. Default is transparent.
      *	Output:	 Rotate image by 75 degress with the a grey background
      */
-	$imageLibObj -> rotate(75, '#cccccc');
+	$magicianObj -> rotate(75, '#cccccc');
 
 
 	/*	Purpose: Save image
@@ -24,6 +24,6 @@
  	 * 			 quality - (optional) 0-100 (100 being the highest (default))
      *				Only applies to jpg & png only
      */
-	$imageLibObj -> saveImage('output_3.2.png', 100);
+	$magicianObj -> saveImage('output_3.2.png', 100);
 
 ?>

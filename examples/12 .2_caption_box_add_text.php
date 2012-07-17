@@ -1,13 +1,13 @@
 <?php
 
-	require_once('image_lib/image_lib_class.php');
+	require_once('../php_image_magician.php');
 
 	/*	Purpose: Open image
      *	Usage:	 resize('filename.type')
      * 	Params:	 filename.type - the filename to open
      */
-	//$imageLibObj = new imageLib('sample_images/zoex.jpg');
-	$imageLibObj = new imageLib('sample_images/racecar.jpg');
+	//$magicianObj = new imageLib('sample_images/zoex.jpg');
+	$magicianObj = new imageLib('sample_images/racecar.jpg');
 
 
 	/*	Purpose: Add a caption box to your image. The intended purpose is to 
@@ -26,8 +26,8 @@
      *			transparency - how transparent the caption box is. 0-100. 
 	 *				100 being not transparent at all.
      */
-	$imageLibObj -> addCaptionBox('b', 40, 0, '#000', 50);
-	$imageLibObj -> addTextToCaptionBox('Racecar 2000');
+	$magicianObj -> addCaptionBox('b', 40, 0, '#000', 50);
+	$magicianObj -> addTextToCaptionBox('Racecar 2000');
 
 
 	/*	Purpose: Save image
@@ -36,6 +36,6 @@
  	 * 			 quality - (optional) 0-100 (100 being the highest (default))
      *				Only applies to jpg & png only
      */
-	$imageLibObj -> saveImage('output_12.2.png', 100);
+	$magicianObj -> saveImage('output_12.2.png', 100);
 
 ?>

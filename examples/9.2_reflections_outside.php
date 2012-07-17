@@ -1,12 +1,12 @@
 <?php
 
-	require_once('image_lib/image_lib_class.php');
+	require_once('../php_image_magician.php');
 
 	/*	Purpose: Open image
      *	Usage:	 resize('filename.type')
      * 	Params:	 filename.type - the filename to open
      */
-	$imageLibObj = new imageLib('sample_images/paradise.jpg');
+	$magicianObj = new imageLib('sample_images/paradise.jpg');
 
 
 	/*	Purpose: Create image reflection
@@ -27,7 +27,7 @@
 	 *				False by default as it can cause banding.
 	 *
      */
-	$imageLibObj -> addReflection(75, 10, false, '#fff', true);
+	$magicianObj -> addReflection(75, 10, false, '#fff', true);
 
 
 	/*	Purpose: Save image
@@ -36,6 +36,6 @@
  	 * 			 quality - (optional) 0-100 (100 being the highest (default))
      *				Only applies to jpg & png only
      */
-	$imageLibObj -> saveImage('output_9.2.png', 100);
+	$magicianObj -> saveImage('output_9.2.png', 100);
 
 ?>

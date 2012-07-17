@@ -1,12 +1,12 @@
 <?php
 
-	require_once('image_lib/image_lib_class.php');
+	require_once('../php_image_magician.php');
 
 	/*	Purpose: Open image
      *	Usage:	 resize('filename.type')
      * 	Params:	 filename.type - the filename to open
      */
-	$imageLibObj = new imageLib('sample_images/flower.jpg');
+	$magicianObj = new imageLib('sample_images/flower.jpg');
 
 
 	/*	Purpose: Get the EXIF information from your photo
@@ -14,7 +14,7 @@
      * 	Params:	 n/a
      *	Output:	 Returns an array of your image EXIF information
      */
-	$exifArray = $imageLibObj -> getExif();
+	$exifArray = $magicianObj -> getExif();
 
 
 	// *** Array values assigned to variables

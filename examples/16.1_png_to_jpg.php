@@ -1,13 +1,13 @@
 <?php
 
 
-	require_once('image_lib/image_lib_class.php');
+	require_once('../php_image_magician.php');
 
 	/*	Purpose: Open image
      *	Usage:	 resize('filename.type')
      * 	Params:	 filename.type - the filename to open
      */
-	$imageLibObj = new imageLib('sample_images/monkey.png');
+	$magicianObj = new imageLib('sample_images/monkey.png');
 
 
 	/*	Purpose: 
@@ -15,9 +15,9 @@
      * 	Params:	 
      *			 
      */	
-	$imageLibObj -> setTransparency(false);
-	$imageLibObj -> setFillColor('#cccccc');
-	$imageLibObj -> resizeImage(64, 64);
+	$magicianObj -> setTransparency(false);
+	$magicianObj -> setFillColor('#cccccc');
+	$magicianObj -> resizeImage(64, 64);
 
 
 	/*	Purpose: Save image
@@ -26,6 +26,6 @@
  	 * 			 quality - (optional) 0-100 (100 being the highest (default))
      *				Only applies to jpg & png only
      */
-	$imageLibObj -> saveImage('output_16.1.jpg', 100);
+	$magicianObj -> saveImage('output_16.1.jpg', 100);
 
 ?>

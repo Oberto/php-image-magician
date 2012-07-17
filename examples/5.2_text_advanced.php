@@ -1,12 +1,12 @@
 <?php
 
-	require_once('image_lib/image_lib_class.php');
+	require_once('../php_image_magician.php');
 
 	/*	Purpose: Open image
      *	Usage:	 resize('filename.type')
      * 	Params:	 filename.type - the filename to open
      */
-	$imageLibObj = new imageLib('sample_images/racecar.jpg');
+	$magicianObj = new imageLib('sample_images/racecar.jpg');
 
 
 	/*	Purpose: Add text to your image
@@ -24,7 +24,7 @@
 	 * 				left to right (angle = 0) and will use the font arialbd.ttf
      *			 default color, white.
      */
-	$imageLibObj -> addText('test', '20x30', 0, '#ccc', 12, 0, 'image_lib/fonts/arimo.ttf');
+	$magicianObj -> addText('test', '20x30', 0, '#ccc', 12, 0, 'image_lib/fonts/arimo.ttf');
 
 
 	/*	Purpose: Save image
@@ -33,6 +33,6 @@
  	 * 			 quality - (optional) 0-100 (100 being the highest (default))
      *				Only applies to jpg & png only
      */
-	$imageLibObj -> saveImage('output_5.2.png', 100);
+	$magicianObj -> saveImage('output_5.2.png', 100);
 
 ?>

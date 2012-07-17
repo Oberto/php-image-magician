@@ -1,12 +1,12 @@
 <?php
 
-	require_once('image_lib/image_lib_class.php');
+	require_once('../php_image_magician.php');
 
 	/*	Purpose: Open image
      *	Usage:	 resize('filename.type')
      * 	Params:	 filename.type - the filename to open
      */
-	$imageLibObj = new imageLib('sample_images/racecar.jpg');
+	$magicianObj = new imageLib('sample_images/racecar.jpg');
 
 
 	/*	Purpose: Add a drop shadow to your image
@@ -17,7 +17,7 @@
      *				bigger the shadow.
 	 *			bg color - The background color behind the shadow
      */
-	$imageLibObj -> addShadow(45, 15);
+	$magicianObj -> addShadow(45, 15);
 
 
 	/*	Purpose: Save image
@@ -26,6 +26,6 @@
  	 * 			 quality - (optional) 0-100 (100 being the highest (default))
      *				Only applies to jpg & png only
      */
-	$imageLibObj -> saveImage('output_11.1.png', 100);
+	$magicianObj -> saveImage('output_11.1.png', 100);
 
 ?>
