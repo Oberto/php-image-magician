@@ -1,6 +1,14 @@
 <?php
    # ========================================================================#
    #
+   #  This work is licensed under the Creative Commons Attribution 3.0 Unported 
+   #  License. To view a copy of this license, 
+   #  visit http://creativecommons.org/licenses/by/3.0/ or send a letter to 
+   #  Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 
+   #  94041, USA. 
+   #
+   #  All rights reserved.
+   #
    #  Author:    Jarrod Oberto
    #  Version:   1.5.1
    #  Date:      10-05-11
@@ -10,9 +18,9 @@
    #  Requires : Requires PHP GD library.
    #  Usage Example:
    #                     include("lib/php_image_magician.php");
-   #                     $magicianObj = new resize('images/cars/large/a.jpg');
+   #                     $magicianObj = new resize('images/car.jpg');
    #                     $magicianObj -> resizeImage(150, 100, 0);
-   #                     $magicianObj -> saveImage('images/cars/large/b.jpg', 100);
+   #                     $magicianObj -> saveImage('images/car_small.jpg', 100);
    #
    #        - See end of doc for more examples -
    #
@@ -39,8 +47,8 @@
    #
    #  Modificatoin history
    #  Date      Initials  Ver Description
-   #  10-05-11  J.C.O   1.0 Initial release
-   #  01-06-11  J.C.O   1.1   * Added reflections 
+   #  10-05-11  J.C.O   0.0 Initial build
+   #  01-06-11  J.C.O   0.1.1   * Added reflections 
    #              * Added Rounded corners
    #              * You can now use PNG interlacing
    #              * Added shadow
@@ -48,12 +56,12 @@
    #              * Added vintage filter
    #              * Added dynamic image resizing (resize on the fly)
    #              * minor bug fixes
-   #  05-06-11  J.C.O   1.1.1 * Fixed undefined variables 
-   #  17-06-11  J.C.O   1.2   * Added image_batch_class.php class
+   #  05-06-11  J.C.O   0.1.1.1 * Fixed undefined variables 
+   #  17-06-11  J.C.O   0.1.2   * Added image_batch_class.php class
    #              * Minor bug fixes 
-   #  26-07-11  J.C.O   1.4 * Added support for external images
+   #  26-07-11  J.C.O   0.1.4 * Added support for external images
    #              * Can now set the crop poisition  
-   #  03-08-11  J.C.O   1.5 * Added reset() method to reset resource to 
+   #  03-08-11  J.C.O   0.1.5 * Added reset() method to reset resource to 
    #                original input file.
    #              * Added method addTextToCaptionBox() to 
    #                simplify adding text to a caption box.
@@ -72,7 +80,8 @@
    #                as a jpg).
    #              * Added setFillColor() set method - set the 
    #                background color to use instead of transparency.
-   #  05-11-11  J.C.O   1.5.1 * Fixed interlacing option
+   #  05-11-11  J.C.O   0.1.5.1 * Fixed interlacing option
+   #  0-07-12  J.C.O   1.0 
    #
    #  Known issues & Limitations:
    # -------------------------------
