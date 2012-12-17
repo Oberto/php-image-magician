@@ -750,8 +750,8 @@ class imageLib
       $optimalRatio = $widthRatio;
     }
 
-    $optimalHeight = $this->height / $optimalRatio;
-    $optimalWidth  = $this->width  / $optimalRatio;
+    $optimalHeight = round( $this->height / $optimalRatio );
+    $optimalWidth  = round( $this->width  / $optimalRatio );
 
     return array('optimalWidth' => $optimalWidth, 'optimalHeight' => $optimalHeight);
   }
