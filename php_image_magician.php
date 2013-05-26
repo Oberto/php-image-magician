@@ -347,18 +347,20 @@ class imageLib
     // *** If Rotate.
     if ($autoRotate) {
 
-      $exifData = $this->getExif();
+      $exifData = $this->getExif(false);
+      if (count($exifData) > 0) {
 
-      switch($exifData['orientation']) {
-          case 8:
-              $this->imageResized = imagerotate($this->imageResized,90,0);
-              break;
-          case 3:
-              $this->imageResized = imagerotate($this->imageResized,180,0);
-              break;
-          case 6:
-              $this->imageResized = imagerotate($this->imageResized,-90,0);
-              break;
+        switch($exifData['orientation']) {
+            case 8:
+                $this->imageResized = imagerotate($this->imageResized,90,0);
+                break;
+            case 3:
+                $this->imageResized = imagerotate($this->imageResized,180,0);
+                break;
+            case 6:
+                $this->imageResized = imagerotate($this->imageResized,-90,0);
+                break;
+        }
       }
     }
 
@@ -1716,7 +1718,7 @@ class imageLib
   Get EXIF Data
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*/
 
-  public function getExif()
+  public function getExif($debug=true)
     # Author:     Jarrod Oberto
     # Date:       07-05-2011
     # Purpose:    Get image EXIF data
@@ -1727,10 +1729,13 @@ class imageLib
     # 23 May 13 : added orientation flag -jco
     #
   {
+
+    if (!$this->debug || !$debug) { $debug = false; }
+
     // *** Check all is good - check the EXIF library exists and the file exists, too.
-    if (!$this->testEXIFInstalled()) { if ($this->debug) { die('The EXIF Library is not installed.'); }else{ return array(); }};
-    if (!file_exists($this->fileName)) { if ($this->debug) { die('Image not found.'); }else{ return array(); }};
-    if ($this->fileExtension != '.jpg') { if ($this->debug) { die('Metadata not supported for this image type.'); }else{ return array(); }};
+    if (!$this->testEXIFInstalled()) { if ($debug) { die('The EXIF Library is not installed.'); }else{ return array(); }};
+    if (!file_exists($this->fileName)) { if ($debug) { die('Image not found.'); }else{ return array(); }};
+    if ($this->fileExtension != '.jpg') { if ($debug) { die('Metadata not supported for this image type.'); }else{ return array(); }};
     $exifData = exif_read_data($this->fileName, 'IFD0');
 
     // *** Format the apperture value
