@@ -335,6 +335,9 @@ class imageLib
     $this->keepTransparancy($optimalWidth, $optimalHeight, $this->imageResized);
     imagecopyresampled($this->imageResized, $this->image, 0, 0, 0, 0, $optimalWidth, $optimalHeight, $this->width, $this->height);
 
+    // *** Set new "original" sizes to correct padding calculations
+    $this->width=$optimalWidth;
+    $this->height=$optimalHeight;
 
     // *** If '4', then crop too
     if ($option == 4 || $option == 'crop') {
