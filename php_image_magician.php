@@ -18,7 +18,7 @@
      #  Requires : Requires PHP GD library.
      #  Usage Example:
      #                     include("lib/php_image_magician.php");
-     #                     $magicianObj = new resize('images/car.jpg');
+     #                     $magicianObj = new imageLib('images/car.jpg');
      #                     $magicianObj -> resizeImage(150, 100, 0);
      #                     $magicianObj -> saveImage('images/car_small.jpg', 100);
      #
@@ -173,6 +173,8 @@ class imageLib
     private $imageSize;
     private $fileExtension;
 
+    private $isImage = false;
+
     private $debug = true;
     private $errorArray = array();
 
@@ -211,21 +213,23 @@ class imageLib
     {
         if (!$this->testGDInstalled()) { if ($this->debug) { die('The GD Library is not installed.'); }else{ die(); }};
 
-        $this->initialise();
+            $this->initialise();
 
-        // *** Save the image file name. Only store this incase you want to display it
-        $this->fileName = $fileName;
-        $this->fileExtension = strtolower(strrchr($fileName, '.'));
+            // *** Save the image file name. Only store this incase you want to display it
+            $this->fileName = $fileName;
+            $this->fileExtension = strtolower(strrchr($fileName, '.'));
 
-        // *** Open up the file
-        $this->image = $this->openImage($fileName);
+            // *** Open up the file
+            $this->image = $this->openImage($fileName);
 
 
-        // *** Assign here so we don't modify the original
-        $this->imageResized = $this->image;
+            // *** Assign here so we don't modify the original
+            $this->imageResized = $this->image;
 
             // *** If file is an image
-            if ($this->testIsImage($this->image))
+            $this->isImage = $this->testIsImage();
+
+            if ($this->isImage)
             {
                 // *** Get width and height
                 $this->width  = imagesx($this->image);
@@ -2656,23 +2660,53 @@ class imageLib
 
 ## --------------------------------------------------------
 
-    public function testIsImage($image)
+    public function testIsImage()
     # Author:     Jarrod Oberto
-    # Date:       27-02-08
+    # Date:       28 Nov 16
     # Purpose:    Test if file is an image
-    # Param in:   n/a
+    # Param in:
+    # Param out:  n/a
+    # Reference:
+    # Notes: A simpler, less restrictive method would be to just check for
+    #           the 'image' part of 'image/gif', 'image/jpg', etc.
+    #
+    {
+
+        $file = $this->fileName;
+        $isImage = false;
+
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $mimeType = finfo_file($finfo, $file);
+        finfo_close($finfo);
+
+        switch($mimeType) {
+            case 'image/jpeg':
+            case 'image/gif':
+            case 'image/png':
+            case 'image/bmp':
+            case 'image/x-windows-bmp':
+                $isImage = true;
+                break;
+            default:
+                $isImage = false;
+        }
+
+        return $isImage;
+    }
+
+## --------------------------------------------------------
+
+    public function getIsImage()
+    # Author:     Jarrod Oberto
+    # Date:       28 Nov 16
+    # Purpose:    Get testIsImage result
+    # Param in:
     # Param out:  n/a
     # Reference:
     # Notes:
     #
     {
-        if ($image) {
-            $fileIsImage = true;
-        } else {
-            $fileIsImage = false;
-        }
-
-        return $fileIsImage;
+        return $this->isImage;
     }
 
 ## --------------------------------------------------------
