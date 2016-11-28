@@ -10,8 +10,7 @@
      #  All rights reserved.
      #
      #  Author:    Jarrod Oberto
-     #  Version:   1.5.1
-     #  Date:      10-05-11
+     #  Version:   1.5.2
      #  Purpose:   Provide tools for image manipulation using GD
      #  Param In:  See functions.
      #  Param Out: Produces a resized image
@@ -44,44 +43,6 @@
      #  [http://www.kingsquare.nl/phppsdreader]
      #
      #
-     #
-     #  Modificatoin history
-     #  Date      Initials  Ver Description
-     #  10-05-11  J.C.O   0.0 Initial build
-     #  01-06-11  J.C.O   0.1.1   * Added reflections
-     #              * Added Rounded corners
-     #              * You can now use PNG interlacing
-     #              * Added shadow
-     #              * Added caption box
-     #              * Added vintage filter
-     #              * Added dynamic image resizing (resize on the fly)
-     #              * minor bug fixes
-     #  05-06-11  J.C.O   0.1.1.1 * Fixed undefined variables
-     #  17-06-11  J.C.O   0.1.2   * Added image_batch_class.php class
-     #              * Minor bug fixes
-     #  26-07-11  J.C.O   0.1.4 * Added support for external images
-     #              * Can now set the crop poisition
-     #  03-08-11  J.C.O   0.1.5 * Added reset() method to reset resource to
-     #                original input file.
-     #              * Added method addTextToCaptionBox() to
-     #                simplify adding text to a caption box.
-     #              * Added experimental writeIPTC. (not finished)
-     #              * Added experimental readIPTC. (not finished)
-     #  11-08-11  J.C.O     * Added initial border presets.
-     #  30-08-11  J.C.O     * Added 'auto' crop option to crop portrait
-     #                images near the top.
-     #  08-09-11  J.C.O     * Added cropImage() method to allow standalone
-     #                cropping.
-     #  17-09-11  J.C.O     * Added setCropFromTop() set method - set the
-     #                percentage to crop from the top when using
-     #                crop 'auto' option.
-     #              * Added setTransparency() set method - allows you
-     #                to turn transparency off (like when saving
-     #                as a jpg).
-     #              * Added setFillColor() set method - set the
-     #                background color to use instead of transparency.
-     #  05-11-11  J.C.O   0.1.5.1 * Fixed interlacing option
-     #  0-07-12  J.C.O   1.0
      #
      #  Known issues & Limitations:
      # -------------------------------
