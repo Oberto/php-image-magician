@@ -2399,6 +2399,10 @@ class imageLib
     # Notes:
     #
     {
+        $this->__destruct();
+        $this->image = null;
+        $this->imageResized = null;
+        gc_collect_cycles();
         $this->__construct($this->fileName);
     }
 
