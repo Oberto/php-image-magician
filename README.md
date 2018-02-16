@@ -16,6 +16,8 @@ home page @ http://phpimagemagician.jarrodoberto.com
 * Read EXIF metadata
 * Borders, Rounded corners, Rotation
 * Filters and effects
+* All operations (eg. filter, effects) can be stacked
+* Image sharpening
 * Image type conversion
 * BMP support
 * PSD reader support (limited)
