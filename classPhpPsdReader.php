@@ -6,7 +6,7 @@
 *	By Tim de Koning
 *
 *	Kingsquare Information Services, 22 jan 2007
-*        jhjhjk
+*        jhjhjk dgdxgbdhbgfbgdf
 *
 *	example use:
 *	------------
