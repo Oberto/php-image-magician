@@ -3,7 +3,7 @@
 
 Image manipulation at it's finest.
 
-home page @ http://phpimagemagician.jarrodoberto.com
+home page @ http://phpimagemagician.oberto.co.nz/
 
 
 ### Features
