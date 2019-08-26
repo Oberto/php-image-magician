@@ -1699,21 +1699,21 @@ class imageLib
         $exifData = exif_read_data($this->fileName, 'IFD0');
 
         // *** Format the apperture value
-        $ev = $exifData['ApertureValue'];
+        $ev = isset($exifData['ApertureValue']) ? $exifData['ApertureValue'] : '';
         $apPeicesArray = explode('/', $ev);
         if (count($apPeicesArray) == 2) {
             $apertureValue = round($apPeicesArray[0] / $apPeicesArray[1], 2, PHP_ROUND_HALF_DOWN) . ' EV';
         } else { $apertureValue = '';}
 
         // *** Format the focal length
-        $focalLength = $exifData['FocalLength'];
+        $focalLength = isset($exifData['FocalLength']) ? $exifData['FocalLength'] : '';
         $flPeicesArray = explode('/', $focalLength);
         if (count($flPeicesArray) == 2) {
             $focalLength = $flPeicesArray[0] / $flPeicesArray[1] . '.0 mm';
         } else { $focalLength = '';}
 
         // *** Format fNumber
-        $fNumber = $exifData['FNumber'];
+        $fNumber = isset($exifData['FNumber']) ? $exifData['FNumber'] : '';
         $fnPeicesArray = explode('/', $fNumber);
         if (count($fnPeicesArray) == 2) {
             $fNumber = $fnPeicesArray[0] / $fnPeicesArray[1];
@@ -1725,11 +1725,11 @@ class imageLib
 
 
         // *** Resolve MeteringMode
-        $mm = $exifData['MeteringMode'];
+        $mm = isset($exifData['MeteringMode']) ? $exifData['MeteringMode'] : '';
         $mm = $this->resolveMeteringMode($mm);
 
         // *** Resolve Flash
-        $flash = $exifData['Flash'];
+        $flash = isset($exifData['Flash']) ? $exifData['Flash'] : '';
         $flash = $this->resolveFlash($flash);
 
 
