@@ -54,7 +54,7 @@ home page @ http://phpimagemagician.oberto.co.nz/
     $magicianObj -> saveImage('racecar_small.png');      
     
     
-Check out the [documentation](http://phpimagemagician.jarrodoberto.com/docs.html) for more examples.
+Check out the [documentation](http://phpimagemagician.oberto.co.nz/docs.html) for more examples.
 
 ### Contributions
 If you'd like to contribute features or bug fixes to the project, please be my guest.
