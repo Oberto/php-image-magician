@@ -2354,34 +2354,42 @@ class imageLib
 
         if (!file_exists($file) && !$this->checkStringStartsWith('http://', $file)) { if ($this->debug) { die('Image not found.'); }else{ die(); }};
 
-        // *** Get extension
-        $extension = strrchr($file, '.');
-        $extension = strtolower($extension);
+        $img = false;
 
-        switch($extension)
-        {
-            case '.jpg':
-            case '.jpeg':
-                    $img = @imagecreatefromjpeg($file);
-                    break;
-            case '.gif':
-                    $img = @imagecreatefromgif($file);
-                    break;
-            case '.png':
-                    $img = @imagecreatefrompng($file);
-                    break;
-            case '.bmp':
+        $info = getimagesize($file);
+        switch ($info[2]) {
+            case IMAGETYPE_JPEG:
+                $img = @imagecreatefromjpeg($file);
+                break;
+            case IMAGETYPE_PNG:
+                $img = @imagecreatefrompng($file);
+                break;
+            case IMAGETYPE_GIF:
+                $img = @imagecreatefromgif($file);
+                break;
+            case IMAGETYPE_WBMP:
+                $img = @$this->imagecreatefrombmp($file);
+                break;
+            default:
+                $img = false;
+                break;
+        }
+
+        if (!$img) {
+            // *** Get extension
+            $extension = strrchr($file, '.');
+            $extension = fix_strtolower($extension);
+            switch ($extension) {
+                case '.bmp':
                     $img = @$this->imagecreatefrombmp($file);
                     break;
-            case '.psd':
+                case '.psd':
                     $img = @$this->imagecreatefrompsd($file);
                     break;
-
-            // ... etc
-
-            default:
+                default:
                     $img = false;
                     break;
+            }
         }
 
         return $img;
