@@ -2376,6 +2376,9 @@ class imageLib
             case '.psd':
                     $img = @$this->imagecreatefrompsd($file);
                     break;
+            case '.webp':
+                    $img = @imagecreatefromwebp($file);
+                    break;
 
             // ... etc
 
@@ -2475,7 +2478,13 @@ class imageLib
             case '.bmp':
                 file_put_contents($savePath, $this->GD2BMPstring($this->imageResized));
                 break;
-
+            case '.webp':
+                $this->checkInterlaceImage($this->isInterlace);
+                if (imagetypes() & IMG_WEBP) {
+                    imagewebp($this->imageResized, $savePath, $imageQuality);
+                }else{
+                    $error = 'webp';
+                }
                 // ... etc
 
             default:
