@@ -2425,7 +2425,7 @@ class imageLib
     {
 
         // *** Perform a check or two.
-        if (!is_resource($this->imageResized)) { if ($this->debug) { die('saveImage: This is not a resource.'); }else{ die(); }}
+        if (! $this->imageResized instanceof \GdImage) { if ($this->debug) { die('saveImage: This is not a resource.'); }else{ die(); }}
         $fileInfoArray = pathInfo($savePath);
         clearstatcache();
         if (!is_writable($fileInfoArray['dirname'])) {  if ($this->debug) { die('The path is not writable. Please check your permissions.'); }else{ die(); }}
